@@ -1,0 +1,29 @@
+<% let {id, year, manufacturer, model, size} = bike %>
+
+<form method="POST" action="/bikes/<%=id%>?_method=PUT" >
+  <select name="manufacturer" >
+    <option value="" disabled hidden>Manufacturer</option>
+    <% manufacturers.forEach( m => { %>
+      <option value="<%= m.name %>" <%= (m.name === manufacturer) ? "selected" : '' %>> <%= m.name %></option>
+    <% })%>
+  </select>
+
+  <select name="year">
+    <option value="" disabled hidden>Year</option>
+    <% for (let i= 1956; i <= new Date().getFullYear(); i++) { %>
+      <option value="<%= i %>" <%= (i === year) ? "selected" : '' %>><%= i %></option>
+      <% } %>
+  </select>
+
+  <input type="text" name="model" value="<%= model %>"/>
+
+  <select name="size">
+    <option value="" disabled hidden>Size</option>
+    <% for (let i= 42; i <= 72; i+=2) { %>
+      <option value="<%= i %>" <%= (i === size) ? "selected" : '' %> > <%= i %></option>
+    <% } %>
+
+  </select>
+
+  <input type="submit" value="Submit" class="button">
+</form>

@@ -1,0 +1,5 @@
+<% bikes.forEach( bike => { %>
+<% let {id, year, manufacturer, model, size} = bike; %>
+
+  <a href="/bikes/<%= id %>"><p> <%= ` ${year} ${manufacturer} ${ model} ${size}` %> </p></a>
+<% }) %>

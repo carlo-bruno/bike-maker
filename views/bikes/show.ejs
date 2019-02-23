@@ -1,0 +1,9 @@
+<% let {id,manufacturer, year, model, size} = bike; %>
+
+<h3> <%= year + " " + model %></h3>
+<p>Size: <%= size %></p>
+<p>Manufacturer: <%= manufacturer %></p>
+<form action="/bikes/<%= id %>?_method=DELETE" method="POST">
+  <input type="submit" value="Delete" />
+</form>
+<a href="/bikes/<%= id %>/edit">Update Bike</a>

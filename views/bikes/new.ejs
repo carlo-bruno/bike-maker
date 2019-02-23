@@ -1,0 +1,29 @@
+<h3>Gimme your data</h3>
+
+<form action="/bikes" method="POST">
+  <select name="manufacturer" >
+    <option value="" disabled selected hidden>Manufacturer</option>
+    <% manufacturers.forEach( m => { %>
+      <option value="<%= m.name %>"> <%= m.name %></option>
+    <% })%>
+  </select>
+
+  <select name="year">
+    <option value="" disabled selected hidden>Year</option>
+    <% for (let i= 1956; i <= new Date().getFullYear(); i++) { %>
+      <option value="<%= i %>"><%= i %></option>
+      <% } %>
+  </select>
+
+  <input type="text" name="model" placeholder="Model"/>
+
+  <select name="size">
+    <option value="" disabled selected hidden>Size</option>
+    <% for (let i= 42; i <= 72; i+=2) { %>
+      <option value="<%= i %>"><%= i %></option>
+    <% } %>
+
+  </select>
+
+  <input type="submit" value="Submit" class="button">
+</form>
